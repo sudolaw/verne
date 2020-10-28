@@ -8,7 +8,7 @@ import (
 
 func setAuthRoute(r *gin.Engine) {
 	authController := new(authmod.Controller)
-	r.GET("/", authController.Auth)
+	r.POST("/api/auth_on_register", authController.Auth)
 
 }
 
@@ -24,5 +24,5 @@ func InitRoute() *gin.Engine {
 func main() {
 
 	router := InitRoute()
-	router.Run("127.0.0.1:4000")
+	router.Run("127.0.0.1:3000")
 }

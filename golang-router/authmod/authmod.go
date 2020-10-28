@@ -1,6 +1,7 @@
 package authmod
 
 import (
+	"io/ioutil"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -11,7 +12,8 @@ type Controller struct{}
 
 //Login is to process login request
 func (auth *Controller) Auth(c *gin.Context) {
-
-	c.JSON(http.StatusOK, gin.H{"datdflkngkla": "hello world"})
+	body, _ := ioutil.ReadAll(c.Request.Body)
+	println(string(body))
+	c.JSON(http.StatusOK, gin.H{"result": "ok"})
 
 }
