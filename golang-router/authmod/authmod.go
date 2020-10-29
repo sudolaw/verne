@@ -3,6 +3,7 @@ package authmod
 import (
 	"encoding/json"
 	"fmt"
+	"golang-router/model"
 	"io/ioutil"
 	"net/http"
 
@@ -22,13 +23,17 @@ type Reqe struct {
 	CleanSession bool
 }
 
-//Login is to process login request
+//Auth Login is to process login request
 func (auth *Controller) Auth(c *gin.Context) {
 	body, _ := ioutil.ReadAll(c.Request.Body)
 	j := string(body)
 	var t Reqe
 	json.Unmarshal([]byte(j), &t)
 	fmt.Print(t.Username)
-	c.JSON(http.StatusOK, gin.H{"result": "ok"})
+	fen := new(model.Pasal)
+	pass := fen.Pass(t.Username)
+	if pass.MyPassword == t.Password {
+		c.JSON(http.StatusOK, gin.H{"result": "ok"})
+	}
 
 }
