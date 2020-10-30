@@ -1,0 +1,8 @@
+architecture : 
+    requirements:
+        functional:
+            vendor create :
+                webhook (get,post)
+                devices: create and lifecycle
+
+                
