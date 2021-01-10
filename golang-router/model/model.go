@@ -24,7 +24,7 @@ type Pasal struct{}
 //Pass Login is to Pass login request Pasal
 func (lol *Pasal) Pass(j string) Note {
 
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://practice_user2:practiceA438@otomator.com/practice_db"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://practice_user2:practiceA438@<domain>.com/practice_db"))
 	if err != nil {
 		log.Fatal(err)
 	}
