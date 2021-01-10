@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://practice_user2:practiceA438@otomator.com/practice_db"))
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb://practice_user2:practiceA438@<domain>.com/practice_db"))
 	if err != nil {
 		log.Fatal(err)
 	}
